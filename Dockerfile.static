@@ -23,6 +23,6 @@ LABEL io.vcweb.type="module" \
       io.vcweb.base="image.wrapper" \
       io.vcweb.build="image" \
       io.vcweb.label="module.kafka_rest - ContEco" \
-      io.vcweb.description="Kafka REST module with managed standard URL UI." \
+      io.vcweb.description="Kafka REST module with managed standard URL." \
       io.vcweb.docker.cmd.help="docker run vcwebio/conteco.module.kafka_rest --help"
 ##### END image/Dockerfile/env-labels-footer #####

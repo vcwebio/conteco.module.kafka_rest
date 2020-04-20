@@ -5,7 +5,7 @@ services:
 # START SERVICE nginx.rewrite
   nginx:
     image: ${CONTECO_REGISTRY}${CONTECO_REALM_RUNTIME}/conteco.nginx.rewrite:1.17.3
-    environment: ['CONTECO_NGINX_CONF_LOCATION=/${CONTECO_URLPREFIX}/rest', 'CONTECO_NGINX_CONF_PROXY_PASS=${CONTECO_STACKPREFIX}_kafka_rest:8082']
+    environment: ['CONTECO_NGINX_CONF_LOCATION=/${CONTECO_URLPREFIX}/kafka_rest', 'CONTECO_NGINX_CONF_PROXY_PASS=${CONTECO_STACKPREFIX}_kafka_rest:8082']
     command: []
     volumes: []
     ports: []
@@ -19,7 +19,7 @@ services:
         reservations:
           cpus: '${CONTECO_DC_KAFKA_REST_EXT_REST_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
           memory: '${CONTECO_DC_KAFKA_REST_EXT_REST_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
-      labels: [traefik.enable=true,traefik.docker.network=${CONTECO_NETWORKGLOBAL}_overlay, traefik.http.services.${CONTECO_STACKPREFIX}_nginx.loadbalancer.server.port=80, traefik.http.routers.${CONTECO_STACKPREFIX}_nginx.entrypoints=conteco, traefik.http.routers.${CONTECO_STACKPREFIX}_nginx.rule=PathPrefix("/${CONTECO_URLPREFIX}/rest")]
+      labels: [traefik.enable=true,traefik.docker.network=${CONTECO_NETWORKGLOBAL}_overlay, traefik.http.services.${CONTECO_STACKPREFIX}_nginx.loadbalancer.server.port=80, traefik.http.routers.${CONTECO_STACKPREFIX}_nginx.entrypoints=conteco, traefik.http.routers.${CONTECO_STACKPREFIX}_nginx.rule=PathPrefix("/${CONTECO_URLPREFIX}/kafka_rest")]
 # END SERVICE nginx.rewrite
 
 volumes: {}
